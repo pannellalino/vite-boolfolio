@@ -1,26 +1,43 @@
 <script>
+import axios from 'axios';
+
+import ProjectDetail from '../components/ProjectDetail.vue';
 
 export default {
   name: 'ProjectCard',
-  props: {
-    project: Object
+  components:{
+    ProjectDetail
   },
-
   data(){
-    return
+    return{
+      baseUrl: 'http://127.0.0.1:8000/api/',
+      projects: []
+    }
+  },
+  methods:{
+    getApi(){
+      axios.get(this.baseUrl + 'projects')
+        .then(result =>{
+          this.projects = result.data.projects
+        })
+    }
+  },
+  mounted(){
+    this.getApi();
   }
 }
 </script>
 
 
 <template>
-      <div class="card mb-4 bg-dark" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title text-muted">{{project.name}}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">{{project.summary}}</h6>
-          <a href="#" class="">Show</a>
-        </div>
-      </div>
+  
+  <div class="container text-center">
+    <h2 class="text-success p-5">Elenco progetti</h2>
+    <div class="d-flex flex-wrap justify-content-around">
+      <ProjectDetail v-for="project in projects" :key="project.id" :project="project" />
+    </div>
+
+  </div>
 
 </template>
 
