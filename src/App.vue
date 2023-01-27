@@ -1,11 +1,13 @@
 <script>
 
 import axios from 'axios';
-import ProjectCard from "./components/ProjectCard.vue";
+import Menu from './partials/Menu.vue';
+import ProjectCard from "./pages/ProjectCard.vue";
 
 export default {
   name: 'App',
   components:{
+    Menu,
     ProjectCard
   },
   data(){
@@ -30,6 +32,8 @@ export default {
 
 
 <template>
+  <Menu />
+  <router-view></router-view>
   <div class="container text-center">
     <h1 class="text-success p-5">Elenco progetti</h1>
     <div class="d-flex flex-wrap justify-content-around">

@@ -8,14 +8,12 @@ export default {
 
   data(){
     return
-
   }
 }
 </script>
 
 
 <template>
-    
       <div class="card mb-4 bg-dark" style="width: 18rem;">
         <div class="card-body">
           <h5 class="card-title text-muted">{{project.name}}</h5>
@@ -28,5 +26,7 @@ export default {
 
 
 <style lang="scss">
-
+h1{
+  color: white;
+}
 </style>
