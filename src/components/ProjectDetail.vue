@@ -16,12 +16,19 @@ export default {
         <div class="card-body">
           <h5 class="card-title text-muted">{{project.name}}</h5>
           <h6 class="card-subtitle mb-2 text-muted">{{project.summary}}</h6>
-          <a href="#" class="">Show</a>
+          <button class="btn btn-outline-success">
+            <router-link class="text-decoration-none" :to="{name: 'ShowDetail', params:{slug: project.slug} }">Show</router-link>
+          </button>
         </div>
       </div>
 
 </template>  
 
-<style>
-
+<style lang="scss" scoped>
+a{
+  color: #166037;
+  &:hover{
+    color: #0c341e;
+  }
+}
 </style>
