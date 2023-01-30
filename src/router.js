@@ -30,7 +30,7 @@ const router = createRouter({
         component: Contacts
       },
       {
-        path:'/show',
+        path:'/show/:slug',
         name:'ShowDetail',
         component: ShowDetail
       }
